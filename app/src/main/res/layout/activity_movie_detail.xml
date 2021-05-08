@@ -11,10 +11,9 @@
         android:id="@+id/tb_detail"
         style="@style/Theme.CickMovie"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:layout_gravity="top"
         android:background="#00FFFFFF"
-        android:minHeight="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,12 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminate="true"
+        app:hideAnimationBehavior="outward"
         app:indicatorColor="@color/secondaryColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tb_detail"
-        app:minHideDelay="1000"
-        app:showDelay="1000"
+        app:minHideDelay="2000"
+        app:showAnimationBehavior="inward"
         app:trackCornerRadius="4dp" />
 
     <RelativeLayout

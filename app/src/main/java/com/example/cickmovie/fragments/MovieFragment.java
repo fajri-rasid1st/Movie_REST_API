@@ -88,12 +88,12 @@ public class MovieFragment extends Fragment implements GridAdapter.OnItemClick, 
                         recyclerView.setAdapter(gridAdapter);
                         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
-                        lpiMovie.setVisibility(View.GONE);
+                        lpiMovie.hide();
                         clMovieError.setVisibility(View.GONE);
                     } else {
                         Toast.makeText(getActivity(), "Request Failed", Toast.LENGTH_SHORT).show();
                         if (!isResponseAlreadySuccess) clMovieError.setVisibility(View.VISIBLE);
-                        new Handler().postDelayed(() -> lpiMovie.setVisibility(View.GONE), 3000);
+                        new Handler().postDelayed(() -> lpiMovie.hide(), 3000);
                     }
                 }
             }
@@ -103,7 +103,7 @@ public class MovieFragment extends Fragment implements GridAdapter.OnItemClick, 
                 // Log.d(TAG, t.getMessage());
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
                 if (!isResponseAlreadySuccess) clMovieError.setVisibility(View.VISIBLE);
-                new Handler().postDelayed(() -> lpiMovie.setVisibility(View.GONE), 3000);
+                new Handler().postDelayed(() -> lpiMovie.hide(), 3000);
             }
         });
     }
@@ -120,7 +120,7 @@ public class MovieFragment extends Fragment implements GridAdapter.OnItemClick, 
 
     @Override
     public void onRefresh() {
-        lpiMovie.setVisibility(View.VISIBLE);
+        lpiMovie.show();
         loadData();
         new Handler().postDelayed(() -> srlMovie.setRefreshing(false), 1000);
     }

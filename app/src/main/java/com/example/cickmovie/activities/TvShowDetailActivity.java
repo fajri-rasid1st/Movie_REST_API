@@ -107,10 +107,10 @@ public class TvShowDetailActivity extends AppCompatActivity implements View.OnCl
                         setDetailActivityContent();
                     }
 
-                    lpiTvShowDetail.setVisibility(View.GONE);
+                    lpiTvShowDetail.hide();
                 } else {
                     Toast.makeText(TvShowDetailActivity.this, "Request Failed", Toast.LENGTH_SHORT).show();
-                    new Handler().postDelayed(() -> lpiTvShowDetail.setVisibility(View.GONE), 3000);
+                    new Handler().postDelayed(() -> lpiTvShowDetail.hide(), 3000);
                 }
             }
 
@@ -118,7 +118,7 @@ public class TvShowDetailActivity extends AppCompatActivity implements View.OnCl
             public void onFailure(@NonNull Call<TvShow> call, @NonNull Throwable t) {
                 // Log.d(TAG, t.getMessage());
                 Toast.makeText(TvShowDetailActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                new Handler().postDelayed(() -> lpiTvShowDetail.setVisibility(View.GONE), 3000);
+                new Handler().postDelayed(() -> lpiTvShowDetail.hide(), 3000);
             }
         });
     }

@@ -107,10 +107,10 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
                         setDetailActivityContent();
                     }
 
-                    lpiMovieDetail.setVisibility(View.GONE);
+                    lpiMovieDetail.hide();
                 } else {
                     Toast.makeText(MovieDetailActivity.this, "Request Failed", Toast.LENGTH_SHORT).show();
-                    new Handler().postDelayed(() -> lpiMovieDetail.setVisibility(View.GONE), 3000);
+                    new Handler().postDelayed(() -> lpiMovieDetail.hide(), 3000);
                 }
             }
 
@@ -118,7 +118,7 @@ public class MovieDetailActivity extends AppCompatActivity implements View.OnCli
             public void onFailure(@NonNull Call<Movie> call, @NonNull Throwable t) {
                 // Log.d(TAG, t.getMessage());
                 Toast.makeText(MovieDetailActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                new Handler().postDelayed(() -> lpiMovieDetail.setVisibility(View.GONE), 3000);
+                new Handler().postDelayed(() -> lpiMovieDetail.hide(), 3000);
             }
         });
     }

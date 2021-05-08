@@ -87,12 +87,12 @@ public class TvShowFragment extends Fragment implements ListAdapter.OnItemClick,
                         recyclerView.setAdapter(listAdapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-                        lpiTvShow.setVisibility(View.GONE);
+                        lpiTvShow.hide();
                         clTvShowError.setVisibility(View.GONE);
                     } else {
                         Toast.makeText(getActivity(), "Request Failed", Toast.LENGTH_SHORT).show();
                         if (!isResponseAlreadySuccess) clTvShowError.setVisibility(View.VISIBLE);
-                        new Handler().postDelayed(() -> lpiTvShow.setVisibility(View.GONE), 3000);
+                        new Handler().postDelayed(() -> lpiTvShow.hide(), 3000);
                     }
                 }
             }
@@ -102,7 +102,7 @@ public class TvShowFragment extends Fragment implements ListAdapter.OnItemClick,
                 // Log.d(TAG, t.getMessage());
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
                 if (!isResponseAlreadySuccess) clTvShowError.setVisibility(View.VISIBLE);
-                new Handler().postDelayed(() -> lpiTvShow.setVisibility(View.GONE), 3000);
+                new Handler().postDelayed(() -> lpiTvShow.hide(), 3000);
             }
         });
     }
@@ -119,7 +119,7 @@ public class TvShowFragment extends Fragment implements ListAdapter.OnItemClick,
 
     @Override
     public void onRefresh() {
-        lpiTvShow.setVisibility(View.VISIBLE);
+        lpiTvShow.show();
         loadData();
         new Handler().postDelayed(() -> srlTvShow.setRefreshing(false), 1000);
     }
