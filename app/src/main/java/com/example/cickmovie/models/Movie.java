@@ -72,7 +72,7 @@ public class Movie {
     }
 
     public String getRuntime() {
-        return String.format("%s Mins", runtime);
+        return runtime != null ? String.format("%s Mins", runtime) : "None";
     }
 
     public void setRuntime(String runtime) {
@@ -112,6 +112,10 @@ public class Movie {
     }
 
     public List<Genres> getGenres() {
+        if (genres.size() == 0) {
+            genres.add(new Genres("None"));
+        }
+
         return genres;
     }
 

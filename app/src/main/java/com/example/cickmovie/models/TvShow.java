@@ -115,6 +115,10 @@ public class TvShow {
     }
 
     public List<Genres> getGenres() {
+        if (genres.size() == 0) {
+            genres.add(new Genres("None"));
+        }
+
         return genres;
     }
 
